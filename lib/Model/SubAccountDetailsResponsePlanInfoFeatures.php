@@ -2,7 +2,7 @@
 /**
  * SubAccountDetailsResponsePlanInfoFeatures
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
@@ -41,6 +41,7 @@ use \Brevo\Client\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
+#[\AllowDynamicProperties]
 class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
@@ -186,7 +187,7 @@ class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, Array
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['inbox'] = isset($data['inbox']) ? $data['inbox'] : null;
         $this->container['landingPage'] = isset($data['landingPage']) ? $data['landingPage'] : null;
@@ -296,7 +297,7 @@ class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, Array
      * @return boolean
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -309,7 +310,7 @@ class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, Array
      * @return mixed
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -323,7 +324,7 @@ class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, Array
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -340,7 +341,7 @@ class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, Array
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -362,5 +363,3 @@ class SubAccountDetailsResponsePlanInfoFeatures implements ModelInterface, Array
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

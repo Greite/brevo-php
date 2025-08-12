@@ -2,7 +2,7 @@
 /**
  * GetEmailCampaign
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
@@ -27,6 +27,7 @@
  */
 
 namespace Brevo\Client\Model;
+
 use \Brevo\Client\ObjectSerializer;
 
 /**
@@ -37,7 +38,8 @@ use \Brevo\Client\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class GetEmailCampaign extends GetExtendedCampaignOverview 
+#[\AllowDynamicProperties]
+class GetEmailCampaign extends GetExtendedCampaignOverview
 {
     const DISCRIMINATOR = null;
 
@@ -169,7 +171,7 @@ class GetEmailCampaign extends GetExtendedCampaignOverview
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         parent::__construct($data);
 
@@ -262,7 +264,7 @@ class GetEmailCampaign extends GetExtendedCampaignOverview
      * @return boolean
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -275,7 +277,7 @@ class GetEmailCampaign extends GetExtendedCampaignOverview
      * @return mixed
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -289,7 +291,7 @@ class GetEmailCampaign extends GetExtendedCampaignOverview
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -306,7 +308,7 @@ class GetEmailCampaign extends GetExtendedCampaignOverview
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

@@ -1,7 +1,7 @@
 <?php
 /**
  * ApiException
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
@@ -38,6 +38,7 @@ use \Exception;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
+#[\AllowDynamicProperties]
 class ApiException extends Exception
 {
 
@@ -70,7 +71,7 @@ class ApiException extends Exception
      * @param string[]|null $responseHeaders HTTP response header
      * @param mixed         $responseBody    HTTP decoded body of the server response either as \stdClass or string
      */
-    public function __construct($message = "", $code = 0, $responseHeaders = [], $responseBody = null)
+    public function __construct($message = "", $code = 0, ?array $responseHeaders = [], mixed $responseBody = null)
     {
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;

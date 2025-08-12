@@ -2,7 +2,7 @@
 /**
  * ObjectSerializer
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
@@ -37,6 +37,7 @@ namespace Brevo\Client;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
+#[\AllowDynamicProperties]
 class ObjectSerializer
 {
     /**
@@ -48,7 +49,7 @@ class ObjectSerializer
      *
      * @return string|object serialized form of $data
      */
-    public static function sanitizeForSerialization($data, $type = null, $format = null)
+    public static function sanitizeForSerialization($data, ?string $type = null, ?string $format = null)
     {
         if (is_scalar($data) || null === $data) {
             return $data;
@@ -230,7 +231,7 @@ class ObjectSerializer
      *
      * @return object|array|null an single or an array of $class instances
      */
-    public static function deserialize($data, $class, $httpHeaders = null)
+    public static function deserialize($data, $class, ?array $httpHeaders = null)
     {
         if (null === $data) {
             return null;

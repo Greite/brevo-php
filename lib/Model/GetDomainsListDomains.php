@@ -2,7 +2,7 @@
 /**
  * GetDomainsListDomains
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
@@ -40,6 +40,7 @@ use \Brevo\Client\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
+#[\AllowDynamicProperties]
 class GetDomainsListDomains implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
@@ -195,7 +196,7 @@ class GetDomainsListDomains implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['domainName'] = isset($data['domainName']) ? $data['domainName'] : null;
@@ -367,7 +368,7 @@ class GetDomainsListDomains implements ModelInterface, ArrayAccess
      * @return boolean
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -380,7 +381,7 @@ class GetDomainsListDomains implements ModelInterface, ArrayAccess
      * @return mixed
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -394,7 +395,7 @@ class GetDomainsListDomains implements ModelInterface, ArrayAccess
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -411,7 +412,7 @@ class GetDomainsListDomains implements ModelInterface, ArrayAccess
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
@@ -433,5 +434,3 @@ class GetDomainsListDomains implements ModelInterface, ArrayAccess
         return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
-
-

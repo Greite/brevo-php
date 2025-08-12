@@ -1,7 +1,7 @@
 <?php
 /**
  * Configuration
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
@@ -30,18 +30,17 @@ namespace Brevo\Client;
 
 /**
  * Configuration Class Doc Comment
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Brevo\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-
-$GLOBALS['version'] = '2.0.0';
-
+#[\AllowDynamicProperties]
 class Configuration
 {
+    private const VERSION = '2.0.0';
     private static $defaultConfiguration;
 
     /**
@@ -120,7 +119,7 @@ class Configuration
     public function __construct()
     {
         $this->tempFolderPath = sys_get_temp_dir();
-        $this->userAgent = 'brevo_clientAPI/v' . $GLOBALS['version'] . '/php'; 
+        $this->userAgent = 'brevo_clientAPI/v' . self::VERSION . '/php';
     }
 
     /**
@@ -144,7 +143,7 @@ class Configuration
      *
      * @return string API key or token
      */
-    public function getApiKey($apiKeyIdentifier)
+    public function getApiKey($apiKeyIdentifier): ?string
     {
         return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
     }

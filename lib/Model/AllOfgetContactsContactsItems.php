@@ -2,7 +2,7 @@
 /**
  * AllOfgetContactsContactsItems
  *
- * PHP version 5
+ * PHP version 8
  *
  * @category Class
  * @package  Swagger\Client
@@ -27,6 +27,7 @@
  */
 
 namespace Swagger\Client\Model;
+
 use \Swagger\Client\ObjectSerializer;
 
 /**
@@ -37,7 +38,8 @@ use \Swagger\Client\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AllOfgetContactsContactsItems extends GetContactDetails 
+#[\AllowDynamicProperties]
+class AllOfgetContactsContactsItems extends GetContactDetails
 {
     const DISCRIMINATOR = null;
 
@@ -159,10 +161,9 @@ class AllOfgetContactsContactsItems extends GetContactDetails
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         parent::__construct($data);
-
     }
 
     /**
@@ -196,7 +197,7 @@ class AllOfgetContactsContactsItems extends GetContactDetails
      * @return boolean
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -209,7 +210,7 @@ class AllOfgetContactsContactsItems extends GetContactDetails
      * @return mixed
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
@@ -223,7 +224,7 @@ class AllOfgetContactsContactsItems extends GetContactDetails
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -240,7 +241,7 @@ class AllOfgetContactsContactsItems extends GetContactDetails
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
