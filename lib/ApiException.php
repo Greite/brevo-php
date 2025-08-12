@@ -71,7 +71,7 @@ class ApiException extends Exception
      * @param string[]|null $responseHeaders HTTP response header
      * @param mixed         $responseBody    HTTP decoded body of the server response either as \stdClass or string
      */
-    public function __construct($message = "", $code = 0, ?array $responseHeaders = [], mixed $responseBody = null)
+    public function __construct(string $message = "", int $code = 0, ?array $responseHeaders = [], mixed $responseBody = null)
     {
         parent::__construct($message, $code);
         $this->responseHeaders = $responseHeaders;
